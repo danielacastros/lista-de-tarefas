@@ -36,11 +36,11 @@ Esta é uma API simples para gerenciamento de tarefas, construída com Node.js e
 
    - GET: Obter detalhes de uma tarefa específica.
   
-     /tarefas/atualizar/:id
+   /tarefas/atualizar/:id
      
    - PUT: Atualizar uma tarefa existente.
      
-     /tarefas/deletar/:id
+   /tarefas/deletar/:id
      
    - DELETE: Excluir uma tarefa.
 
