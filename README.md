@@ -10,7 +10,7 @@ Esta é uma API simples para gerenciamento de tarefas, construída com Node.js e
 
 
 
-## Para utilizar o Projeto siga as seguintes instruções:
+## Para utilizar o projeto siga as seguintes instruções:
 1. **Configuração do Banco de Dados:**
    Configure a string de conexão de seu banco de dados no arquivo .env com a seguinte denominação: DB_CONNECTION_STRING.
 
@@ -46,3 +46,8 @@ Esta é uma API simples para gerenciamento de tarefas, construída com Node.js e
 
 6. **Rota da documentação:**
    http://localhost:4000/docs
+
+Próximas atividades: 
+- Melhorar tratamento de erros;
+- Adicionar filtros de pesquisa;
+- Autenticação e autorização.
