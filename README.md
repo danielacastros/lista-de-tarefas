@@ -24,12 +24,12 @@ Esta é uma API simples para gerenciamento de tarefas, construída com Node.js e
 
 4. **Rotas da API:**
    /tasks:
-   GET: Obter todas as tarefas.
-   POST: Criar uma nova tarefa.
+   - GET: Obter todas as tarefas.
+   - POST: Criar uma nova tarefa.
    /tasks/:id:
-   GET: Obter detalhes de uma tarefa específica.
-   PUT: Atualizar uma tarefa existente.
-   DELETE: Excluir uma tarefa.
+   - GET: Obter detalhes de uma tarefa específica.
+   - PUT: Atualizar uma tarefa existente.
+   - DELETE: Excluir uma tarefa.
 
 5. **Rota da documentação:**
    http://localhost:4000/docs
