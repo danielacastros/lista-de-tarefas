@@ -1,0 +1,179 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API de lista de tarefas",
+    "description": "API simples para gerenciamento de tarefas, construída com Node.js e Express.",
+    "version": "0.0.1",
+    "contact": {
+      "name": "Daniela Castro",
+      "email": "danielacastro.dcs@outlook.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:4000",
+      "description": "API de lista de tarefas"
+    }
+  ],
+  "paths": {
+    "/tarefas": {
+      "get": {
+        "summary": "Recupera todas as tarefas.",
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Tarefa"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tarefas/buscar/{id}": {
+      "get": {
+        "summary": "Recupera uma tarefa pelo ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Tarefa"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Tarefa não encontrada",
+            "content": {
+              "application/json": {
+                "example": "Not found"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tarefas/criar": {
+      "post": {
+        "summary": "Cria uma nova tarefa.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tarefa"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    },
+    "/tarefas/atualizar/{id}": {
+      "put": {
+        "summary": "Atualiza as informações de uma tarefa encontrada pelo ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tarefa"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tarefas/deletar/{id}": {
+      "delete": {
+        "summary": "Deleta as informações de uma tarefa encontrada pelo ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tarefa"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "auth": []
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Tarefa": {
+        "type": "object",
+        "properties": {
+          "titulo": {
+            "type": "string"
+          },
+          "descricao": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "auth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

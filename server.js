@@ -3,6 +3,7 @@ import chalk from 'chalk';
 import conectaDatabase from './config/dbConnect.js';
 import routes from './routes/index.js';
 import "dotenv/config";
+import cors from 'cors';
 
 const conexao = await conectaDatabase();
 conexao.on("error", (erro) => {
@@ -15,8 +16,8 @@ conexao.once("open", () => {
 
 const port = 4000;
 const app = express();
+app.use(cors());
 routes(app);
-
 
 app.listen(port, () => {
     console.log(chalk.hex('#CCB7DA').bold(`Backend em execução na porta ${port}`));
